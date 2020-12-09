@@ -32,7 +32,7 @@ function Result(props) {
 	return (
 		<div>
 			<p>{props.label}</p>
-			<h1>{props.result}</h1>
+			<h2>{props.result}</h2>
 		</div>
 	);
 }
@@ -68,6 +68,14 @@ export default class Calculator extends React.Component {
 		return Logic.calculatePeril({...this.state.values});
 	}
 
+	calculateJourneyLength() {
+		return Logic.calculateJourneyLength({...this.state.values});
+	}
+
+	calculateEvents() {
+		return Logic.calculateEvents({...this.state.values});
+	}
+
 
 	render() {
 		return (
@@ -76,6 +84,8 @@ export default class Calculator extends React.Component {
 				<Result result={this.calculateTime()} label="Travel time"/>
 				<Result result={this.calculateDistance()} label="Travel distance"/>
 				<Result result={this.calculatePeril()} label="Peril rating"/>
+				<Result result={this.calculateJourneyLength()} label="Length"/>
+				<Result result={this.calculateEvents()} label="Events number"/>
 			</div>
 		);
 	}

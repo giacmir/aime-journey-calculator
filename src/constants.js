@@ -38,3 +38,4 @@ export const terrains = [
 ];
 
 export const maxPeril = 5;
+export const minimumEvents = 1;
