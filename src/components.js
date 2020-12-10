@@ -4,7 +4,7 @@ import * as Logic from './functions.js'
 function TerrainType(props) {
 	return (
 		<div>
-			<div className="color-square">{props.color}</div>
+			<div className="terrain-color terrain-{props.color}" style={{backgroundColor: props.color}}></div>
 				<label>
 					{props.name}	
 					<input type="number" value={props.value} onChange={props.onChangeCallback}/>
@@ -16,14 +16,14 @@ function TerrainType(props) {
 class Form extends React.Component {
 	render() {
 		return (
-			<div>
+			<form className="pure-form-stacked pure-form">
 			{this.props.terrains.map((terrain, i) => {
 				return (
 					<TerrainType key={terrain.name} color={terrain.color} name={terrain.name} 
 					value={this.props.values[terrain.name] || 0} onChangeCallback={((ev) => {this.props.onChangeValues(terrain.name, ev)})} defaultValue="0"/>
 				);
 			})}
-			</div>
+			</form>
 		);
 	}
 }
@@ -79,13 +79,17 @@ export default class Calculator extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<Form terrains={this.props.terrains} values={this.state.values} onChangeValues={this.onChangeValue()}/>
-				<Result result={this.calculateTime()} label="Travel time"/>
-				<Result result={this.calculateDistance()} label="Travel distance"/>
-				<Result result={this.calculatePeril()} label="Peril rating"/>
-				<Result result={this.calculateJourneyLength()} label="Length"/>
-				<Result result={this.calculateEvents()} label="Events number"/>
+			<div className="pure-g">
+				<div className="pure-u-3-5">
+					<Form terrains={this.props.terrains} values={this.state.values} onChangeValues={this.onChangeValue()}/>
+				</div>
+				<div className="pure-u-2-5">
+					<Result result={this.calculateTime()} label="Travel time"/>
+					<Result result={this.calculateDistance()} label="Travel distance"/>
+					<Result result={this.calculatePeril()} label="Peril rating"/>
+					<Result result={this.calculateJourneyLength()} label="Length"/>
+					<Result result={this.calculateEvents()} label="Events number"/>
+				</div>
 			</div>
 		);
 	}
