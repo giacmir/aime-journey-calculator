@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import Calculator from './components/components.js';
+import Calculator from './components/calculator.js';
 import * as Constants from './constants.js';
 import './index.css';
 
