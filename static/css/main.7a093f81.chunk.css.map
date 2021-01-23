@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,eACC,WAAY,CACZ,UAAW,CACX,UAAU,CACV,iBACD","file":"main.7a093f81.chunk.css","sourcesContent":[".terrain-color {\n\theight: 60px;\n\twidth: 60px;\n\tfloat:left;\n\tmargin-right: 10px;\n}\n"]}
